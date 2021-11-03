@@ -5,48 +5,56 @@
 #                                                     +:+ +:+         +:+      #
 #    By: jceia <jceia@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/11/01 06:52:24 by jceia             #+#    #+#              #
-#    Updated: 2021/11/01 19:16:37 by jceia            ###   ########.fr        #
+#    Created: 2021/11/03 00:21:36 by jceia             #+#    #+#              #
+#    Updated: 2021/11/03 00:40:05 by jceia            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME 		= fixed
+NAME        = fixed
 
-SRC_DIR		= src
-OBJ_DIR		= obj
-INC_DIR		= headers
+INC_DIR     = headers
+SRC_DIR     = src
+OBJ_DIR     = obj
 
-SRCS 		= $(shell find $(SRC_DIR) -name "*.cpp" -type f)
-OBJS		= $(SRCS:$(SRC_DIR)/%=$(OBJ_DIR)/%.o)
+SRCS        = $(shell find $(SRC_DIR) -name "*.cpp" -type f)
+OBJS        = $(SRCS:$(SRC_DIR)/%=$(OBJ_DIR)/%.o)
 
-CXX	 		= clang++
-RM   		= rm -f
+CXX          = clang++
+RM           = rm -f
 
-FLAGS_WARN	= -Wall -Werror -Wextra -pedantic-errors
-FLAGS_INC	= -I$(INC_DIR)
-FLAGS_DEBUG	= -g -fsanitize=address -DDEBUG
+OS          = $(shell uname)
 
-CXXFLAGS	= $(FLAGS_WARN) $(FLAGS_INC) $(FLAGS_DEBUG) -std=c++98 
+FLAGS_WARN  = -Wall -Werror -Wextra -pedantic-errors
+FLAGS_INC   = -I$(INC_DIR)
+FLAGS_DEBUG = -g -fsanitize=address -DDEBUG
+FLAGS_OPT   = -O3
 
-# Object compilation
-$(OBJ_DIR)/%.o:	$(SRC_DIR)/%
+CXXFLAGS    = $(FLAGS_WARN) $(FLAGS_INC) $(FLAGS_DEBUG) -std=c++98
+
+# Compilation
+$(OBJ_DIR)/%.o:    $(SRC_DIR)/%
 	@mkdir -p $(dir $@)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
+# Linking
 $(NAME): $(OBJS)
 	$(CXX) $(CXXFLAGS) $^ -o $@
 
 all: $(NAME)
 
+# Cleaning
 clean:
 	$(RM) -rf $(OBJ_DIR)
 
 fclean: clean
 	$(RM) $(NAME)
 
-fclean:	clean
-
 # Rebuild
-re:	fclean all
+re: fclean all
 
-.PHONY:		all clean fclean re
+# Debug build
+debug:      CXXFLAGS += $(FLAGS_DEBUG)
+debug:      re
+
+
+.PHONY:     all clean fclean re

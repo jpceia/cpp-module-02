@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jceia <jceia@student.42.fr>                +#+  +:+       +#+        */
+/*   By: jpceia <joao.p.ceia@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 19:00:54 by jceia             #+#    #+#             */
-/*   Updated: 2021/11/01 19:09:33 by jceia            ###   ########.fr       */
+/*   Updated: 2021/12/14 18:13:45 by jpceia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 class Fixed
 {
 private:
-    /* data */
     int _raw;
     static const int fracBits = 8;
 public:

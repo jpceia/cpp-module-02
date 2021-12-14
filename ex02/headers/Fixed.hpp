@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jceia <jceia@student.42.fr>                +#+  +:+       +#+        */
+/*   By: jpceia <joao.p.ceia@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 19:00:54 by jceia             #+#    #+#             */
-/*   Updated: 2021/11/02 22:22:34 by jceia            ###   ########.fr       */
+/*   Updated: 2021/12/14 19:03:53 by jpceia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ private:
     static const int fracBits = 8;
 
 public:
-
     // Constructors
     Fixed(void);
     Fixed(const int value);
@@ -35,7 +34,7 @@ public:
     // Assignment operator
     Fixed& operator = (const Fixed& x);
 
-    // Get-Set
+    // Getters and Setters
     int getRawBits(void) const;
     void setRawBits(int const raw);
 
@@ -44,18 +43,18 @@ public:
     int toInt(void) const;
 
     // Comparison operators
-    bool operator> (const Fixed& x);
-    bool operator< (const Fixed& x);
-    bool operator>= (const Fixed& x);
-    bool operator<= (const Fixed& x);
-    bool operator== (const Fixed& x);
-    bool operator!= (const Fixed& x);
+    bool operator> (const Fixed& x) const;
+    bool operator< (const Fixed& x) const;
+    bool operator>= (const Fixed& x) const;
+    bool operator<= (const Fixed& x) const;
+    bool operator== (const Fixed& x) const;
+    bool operator!= (const Fixed& x) const;
 
     // Arithmetic operators
-    Fixed operator+ (const Fixed& x);
-    Fixed operator- (const Fixed& x);
-    Fixed operator* (const Fixed& x);
-    Fixed operator/ (const Fixed& x);
+    Fixed operator+ (const Fixed& x) const;
+    Fixed operator- (const Fixed& x) const;
+    Fixed operator* (const Fixed& x) const;
+    Fixed operator/ (const Fixed& x) const;
 
     // Increment/Decrement operators
     Fixed& operator++(void);    // Pre-Increment

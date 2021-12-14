@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jceia <jceia@student.42.fr>                +#+  +:+       +#+        */
+/*   By: jpceia <joao.p.ceia@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 19:01:00 by jceia             #+#    #+#             */
-/*   Updated: 2021/11/02 21:26:56 by jceia            ###   ########.fr       */
+/*   Updated: 2021/12/14 18:56:22 by jpceia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,39 +91,39 @@ std::ostream& operator << (std::ostream &out, const Fixed& x)
 
 // Comparison operators
 
-bool Fixed::operator> (const Fixed& x)
+bool Fixed::operator> (const Fixed& x) const
 {
     return (_raw > x._raw);
 }
 
-bool Fixed::operator< (const Fixed& x)
+bool Fixed::operator< (const Fixed& x) const
 {
     return (_raw < x._raw);
 }
 
-bool Fixed::operator>= (const Fixed& x)
+bool Fixed::operator>= (const Fixed& x) const
 {
     return (_raw >= x._raw);
 }
 
-bool Fixed::operator<= (const Fixed& x)
+bool Fixed::operator<= (const Fixed& x) const
 {
     return (_raw <= x._raw);
 }
 
-bool Fixed::operator== (const Fixed& x)
+bool Fixed::operator== (const Fixed& x) const
 {
     return (_raw == x._raw);
 }
 
-bool Fixed::operator!= (const Fixed& x)
+bool Fixed::operator!= (const Fixed& x) const
 {
     return (_raw != x._raw);
 }
 
 // Arithmetic operators
 
-Fixed Fixed::operator+ (const Fixed& x)
+Fixed Fixed::operator+ (const Fixed& x) const
 {
     Fixed   res;
 
@@ -131,7 +131,7 @@ Fixed Fixed::operator+ (const Fixed& x)
     return res;
 }
 
-Fixed Fixed::operator- (const Fixed& x)
+Fixed Fixed::operator- (const Fixed& x) const
 {
     Fixed   res;
 
@@ -139,12 +139,12 @@ Fixed Fixed::operator- (const Fixed& x)
     return res;
 }
 
-Fixed Fixed::operator* (const Fixed& x)
+Fixed Fixed::operator* (const Fixed& x) const
 {
     return (Fixed(this->toFloat() * x.toFloat()));
 }
 
-Fixed Fixed::operator/ (const Fixed& x)
+Fixed Fixed::operator/ (const Fixed& x) const
 {
     return (Fixed(this->toFloat() / x.toFloat()));
 }
@@ -180,28 +180,20 @@ Fixed Fixed::operator--(int)
 
 Fixed& Fixed::min(Fixed& x, Fixed& y)
 {
-    if (x.getRawBits() > y.getRawBits())
-        return (y);
-    return (x);
+    return (x.getRawBits() > y.getRawBits() ? y : x);
 }
 
 const Fixed& Fixed::min(const Fixed& x, const Fixed& y)
 {
-    if (x.getRawBits() > y.getRawBits())
-        return (y);
-    return (x);
+    return (x.getRawBits() > y.getRawBits() ? y : x);
 }
 
 Fixed& Fixed::max(Fixed& x, Fixed& y)
 {
-    if (x.getRawBits() < y.getRawBits())
-        return (y);
-    return (x);
+    return (x.getRawBits() < y.getRawBits() ? y : x);
 }
 
 const Fixed& Fixed::max(const Fixed& x, const Fixed& y)
 {
-    if (x.getRawBits() < y.getRawBits())
-        return (y);
-    return (x);
+    return (x.getRawBits() < y.getRawBits() ? y : x);
 }

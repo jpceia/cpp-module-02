@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jceia <jceia@student.42.fr>                +#+  +:+       +#+         #
+#    By: jpceia <joao.p.ceia@gmail.com>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/03 00:21:36 by jceia             #+#    #+#              #
-#    Updated: 2021/11/03 00:40:05 by jceia            ###   ########.fr        #
+#    Updated: 2021/12/14 18:03:48 by jpceia           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,4 +57,4 @@ debug:      CXXFLAGS += $(FLAGS_DEBUG)
 debug:      re
 
 
-.PHONY:     all clean fclean re
+.PHONY:     all clean fclean re debug

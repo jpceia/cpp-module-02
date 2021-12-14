@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jceia <jceia@student.42.fr>                +#+  +:+       +#+        */
+/*   By: jpceia <joao.p.ceia@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 19:01:03 by jceia             #+#    #+#             */
-/*   Updated: 2021/11/01 19:25:03 by jceia            ###   ########.fr       */
+/*   Updated: 2021/12/14 18:23:13 by jpceia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,11 @@ int main(void) {
     std::cout << "b is " << b << std::endl;
     std::cout << "c is " << c << std::endl;
     std::cout << "d is " << d << std::endl;
+
+    std::cout << "a is " << a.toFloat() << " as float" << std::endl;
+    std::cout << "b is " << b.toFloat() << " as float" << std::endl;
+    std::cout << "c is " << c.toFloat() << " as float" << std::endl;
+    std::cout << "d is " << d.toFloat() << " as float" << std::endl;
     
     std::cout << "a is " << a.toInt() << " as integer" << std::endl;
     std::cout << "b is " << b.toInt() << " as integer" << std::endl;

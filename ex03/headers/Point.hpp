@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Point.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jceia <jceia@student.42.fr>                +#+  +:+       +#+        */
+/*   By: jpceia <joao.p.ceia@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 07:50:59 by jceia             #+#    #+#             */
-/*   Updated: 2021/11/03 00:50:07 by jceia            ###   ########.fr       */
+/*   Updated: 2021/12/14 19:14:30 by jpceia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,18 @@ private:
     Fixed const _x;
     Fixed const _y;
 public:
+    // Constructors
     Point(void);
     Point(const Fixed& x, const Fixed& y);
     Point(const Point& p);
+
+    // Destructor
     ~Point(void);
 
-    //Point& operator = (const Point& p);
+    // Assignment operator
+    Point& operator = (const Point& p);
 
-    // get
+    // Getters
     const Fixed& getX(void) const { return _x; }
     const Fixed& getY(void) const { return _y; }
 
@@ -36,7 +40,7 @@ public:
     Point operator+ (const Point& other) const;
     Point operator- (const Point& other) const;
 
-    // dot_product
+    // Dot product
     static Fixed dot_product(const Point& p, const Point& q);
 };
 

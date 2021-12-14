@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Point.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jceia <jceia@student.42.fr>                +#+  +:+       +#+        */
+/*   By: jpceia <joao.p.ceia@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 21:43:09 by jceia             #+#    #+#             */
-/*   Updated: 2021/11/03 00:50:25 by jceia            ###   ########.fr       */
+/*   Updated: 2021/12/14 19:06:12 by jpceia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,12 @@ Point::~Point(void)
 {
 }
 
-/*
 Point& Point::operator= (const Point& p)
 {
-    this = Point(p);
-    (void)p;
+    const_cast<Fixed&>(_x) = p._x;
+    const_cast<Fixed&>(_y) = p._y;
     return *this;
 }
-*/
 
 // Arithmetic operators
 Point Point::operator+ (const Point &p) const

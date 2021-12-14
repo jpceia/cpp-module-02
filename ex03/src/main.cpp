@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jceia <jceia@student.42.fr>                +#+  +:+       +#+        */
+/*   By: jpceia <joao.p.ceia@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 07:53:56 by jceia             #+#    #+#             */
-/*   Updated: 2021/11/03 00:53:13 by jceia            ###   ########.fr       */
+/*   Updated: 2021/12/14 19:13:51 by jpceia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,6 @@ bool bsp(Point const a, Point const b, Point const c, Point const point)
 
     Fixed x = Point::dot_product(p, u) / sq_norm_u;
     Fixed y = Point::dot_product(p, v) / sq_norm_v;
-
-    std::cout << u << " " << v << std::endl;
 
     return (x >= 0 && y >= 0 && x + y <= 1);
 }
@@ -58,10 +56,12 @@ int main(int argc, char const *argv[])
         std::cout << "Please provide four arguments." << std::endl;
         return (-1);
     }
+
     Point a = point_parse(argv[1]);
     Point b = point_parse(argv[2]);
     Point c = point_parse(argv[3]);
     Point point = point_parse(argv[4]);
+
     std::cout << "The point is ";
     std::cout << (bsp(a, b, c, point) ? "inside" : "outside");
     std::cout << " the triangle." << std::endl;

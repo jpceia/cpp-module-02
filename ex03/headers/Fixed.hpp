@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jceia <jceia@student.42.fr>                +#+  +:+       +#+        */
+/*   By: jpceia <joao.p.ceia@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 19:00:54 by jceia             #+#    #+#             */
-/*   Updated: 2021/11/03 00:47:35 by jceia            ###   ########.fr       */
+/*   Updated: 2021/12/14 19:14:39 by jpceia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,20 +21,27 @@ private:
     int _raw;
     static const int fracBits = 8;
 public:
+    // Constructors
     Fixed(void);
     Fixed(const int value);
     Fixed(const float value);
     Fixed(const Fixed& x);
+
+    // Destructor
     ~Fixed(void);
 
+    // Assignment operator
     Fixed& operator = (const Fixed& x);
 
+    // Getters and Setters
     int getRawBits(void) const;
     void setRawBits(int const raw);
+
+    // Converters
     float toFloat(void) const;
     int toInt(void) const;
 
-    // comparison operators
+    // Comparison operators
     bool operator> (const Fixed& x) const;
     bool operator< (const Fixed& x) const;
     bool operator>= (const Fixed& x) const;
@@ -54,6 +61,7 @@ public:
     Fixed& operator--(void);
     Fixed operator--(int);
 
+    // Min-Max
     static Fixed& min(Fixed& x, Fixed& y);
     static const Fixed& min(const Fixed& x, const Fixed& y);
     static Fixed& max(Fixed& x, Fixed& y);

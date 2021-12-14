@@ -3,14 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jceia <jceia@student.42.fr>                +#+  +:+       +#+         #
+#    By: jpceia <joao.p.ceia@gmail.com>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/01 06:52:24 by jceia             #+#    #+#              #
-#    Updated: 2021/11/03 00:39:36 by jceia            ###   ########.fr        #
+#    Updated: 2021/12/14 19:08:05 by jpceia           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME        = fixed
+NAME        = bsp
 
 INC_DIR     = headers
 SRC_DIR     = src
@@ -57,4 +57,4 @@ debug:      CXXFLAGS += $(FLAGS_DEBUG)
 debug:      re
 
 
-.PHONY:     all clean fclean re
+.PHONY:     all clean fclean re debug
